@@ -20,6 +20,8 @@ module.exports = {
 
         try {
             const isUrlAvailable = await noteSchema.findOne({shorten: url})
+            
+            if (!isUrlAvailable) return res.status(404).send("Note not Found");
 
             isUrlAvailable.views++
 
@@ -30,8 +32,6 @@ module.exports = {
                     console.log("deleted")
                 }).catch(err => {throw err})
             }
-
-            if (!isUrlAvailable) return res.status(404).send("Note not Found");
 
             res.send(isUrlAvailable.message) 
         } catch (err) { throw err }

@@ -13,7 +13,7 @@ const NoteSchema = mongoose.Schema({
     },
     views: {
         type: Number, 
-        required: true,
+        required: false,
         default: 0
     }
 })

@@ -13,6 +13,6 @@ mongoose.connect("mongodb://127.0.0.1:27017/note").then(() => {
 }).catch(err => console.log(err)) 
 
 app.use(indexRouter)
-app.use(createRouter)
+app.use("/create", createRouter)
 
 app.listen(3000)
